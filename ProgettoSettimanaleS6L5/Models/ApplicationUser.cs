@@ -13,7 +13,7 @@ namespace ProgettoSettimanaleS6L5.Models
         [Required]
         public DateOnly? BirthDate { get; set; }
 
-        public ICollection<ApplicationUserRole> ApplicationUserRole { get; set; }
+        public ICollection<ApplicationUserRole> ApplicationUserRoles { get; set; }
 
         //inserire Icollection del modello che si vuole collegare
     }

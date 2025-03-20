@@ -24,13 +24,13 @@ namespace ProgettoSettimanaleS6L5.Data
 
             modelBuilder.Entity<ApplicationUserRole>()
                 .HasOne(ur => ur.User) 
-                .WithMany(u => u.ApplicationUserRole) 
+                .WithMany(u => u.ApplicationUserRoles) 
                 .HasForeignKey(ur => ur.UserId); 
 
             // Configura la relazione tra ApplicationUserRole e ApplicationRole
             modelBuilder.Entity<ApplicationUserRole>()
                 .HasOne(ur => ur.Role) 
-                .WithMany(r => r.ApplicationUserRole) 
+                .WithMany(r => r.ApplicationUserRoles) 
                 .HasForeignKey(ur => ur.RoleId);
 
             //configurare la relazione tra le tabelle ApplicationUser con la tabella(modello) dei prodotti o altro a seconda dell'esercizio

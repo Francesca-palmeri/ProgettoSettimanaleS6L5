@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ProgettoSettimanaleS6L5.Models;
+using ProgettoSettimanaleS6L5.ViewModels;
 
 namespace ProgettoSettimanaleS6L5.Controllers;
 
