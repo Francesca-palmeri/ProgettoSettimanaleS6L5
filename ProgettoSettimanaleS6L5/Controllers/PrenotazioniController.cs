@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProgettoSettimanaleS6L5.Controllers
 {
-    [Authorize(Roles = "Admin,Staff")]
+    
     public class PrenotazioniController : Controller
     {
         private readonly ApplicationDbContext _context;

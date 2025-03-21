@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProgettoSettimanaleS6L5.Controllers
 {
-    [Authorize(Roles = "Admin,Staff")]
+    
     public class CamereController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,12 +25,14 @@ namespace ProgettoSettimanaleS6L5.Controllers
             return View(camere);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Camere/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Camere/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -42,10 +44,12 @@ namespace ProgettoSettimanaleS6L5.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(camera);
+            return RedirectToAction("Index", "Camere");
+
         }
 
-        // GET: Camere/Edit/5
+        [Authorize(Roles = "Admin")]
+        // GET: Camere/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -55,8 +59,8 @@ namespace ProgettoSettimanaleS6L5.Controllers
 
             return View(camera);
         }
-
-        // POST: Camere/Edit/5
+        [Authorize(Roles = "Admin")]
+        // POST: Camere/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Camera camera)
@@ -80,7 +84,8 @@ namespace ProgettoSettimanaleS6L5.Controllers
             return View(camera);
         }
 
-        // GET: Camere/Delete/5
+        [Authorize(Roles = "Admin")]
+        // GET: Camere/Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -91,7 +96,7 @@ namespace ProgettoSettimanaleS6L5.Controllers
 
             return View(camera);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Camere/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

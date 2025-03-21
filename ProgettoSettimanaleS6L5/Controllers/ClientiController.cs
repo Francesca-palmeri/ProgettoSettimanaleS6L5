@@ -7,7 +7,7 @@ using ProgettoSettimanaleS6L5.Data;
 
 namespace ProgettoSettimanaleS6L5.Controllers
 {
-    [Authorize(Roles = "Admin,Staff")] // Solo Admin e Staff possono accedere
+     
     public class ClientiController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,11 +23,12 @@ namespace ProgettoSettimanaleS6L5.Controllers
             return View(clienti);
         }
 
+        
         public IActionResult Create()
         {
             return View();
         }
-
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Cliente cliente)
@@ -40,7 +41,7 @@ namespace ProgettoSettimanaleS6L5.Controllers
             }
             return View(cliente);
         }
-
+        
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();

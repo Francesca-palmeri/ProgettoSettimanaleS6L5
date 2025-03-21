@@ -40,7 +40,7 @@ namespace ProgettoSettimanaleS6L5.Controllers
                 var user = await _userManager.FindByEmailAsync(model.Email);
                 if (user != null)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
                     if (result.Succeeded)
                     {
                         // Aggiungiamo i claims relativi ai ruoli
@@ -57,7 +57,7 @@ namespace ProgettoSettimanaleS6L5.Controllers
                         var principal = new ClaimsPrincipal(identity);
                         await _signInManager.SignInWithClaimsAsync(user, new AuthenticationProperties { IsPersistent = model.RememberMe }, claims);
 
-                        return RedirectToAction("Index", "Home");
+                        return View(model);
                     }
                 }
 

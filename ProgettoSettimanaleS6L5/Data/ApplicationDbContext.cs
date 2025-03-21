@@ -56,7 +56,7 @@ namespace ProgettoSettimanaleS6L5.Data
                 .HasForeignKey(p => p.CameraId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Eventuali ulteriori configurazioni (ad esempio, per seeding o regole specifiche)
+            
         }
     }
 }
