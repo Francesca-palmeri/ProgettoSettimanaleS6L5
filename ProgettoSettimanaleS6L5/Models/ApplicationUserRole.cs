@@ -9,7 +9,7 @@ namespace ProgettoSettimanaleS6L5.Models
         public Guid UserId { get; set; }
         public Guid RoleId { get; set; }
 
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
 
         [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
